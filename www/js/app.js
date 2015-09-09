@@ -35,11 +35,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       abstract: true,
       templateUrl: "tabs.html"
     })
-    .state('tabs.home', {
-      url: "/home",
+    .state('tabs.favorites', {
+      url: "/favorites",
       views: {
         'favorites-tab': {
-          templateUrl: "home.html",
+          templateUrl: "favorites.html",
           controller: 'HomeTabCtrl'
         }
       }
@@ -70,6 +70,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
 
 
-   $urlRouterProvider.otherwise("/tab/home");
+   $urlRouterProvider.otherwise("/tab/favorites");
 
 })
