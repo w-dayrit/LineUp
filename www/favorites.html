@@ -1,10 +1,12 @@
 <ion-view title="Favorites">
   <ion-content>
-    <ul>
-      <li ng-repeat="spot in all">
-        {{spot.name}} <br>
-        {{spot.address}}
-      </li?>
+    <ul class="list">
+      <a ng-repeat="spot in all" href="#/tab/spots/_id">
+        <li class="item">
+              <h1>{{spot.name}}</h1>
+              <h2>{{spot.address}}</h2>
+        </li>
+      </a>
     </ul>
   </ion-content>
 </ion-view>
