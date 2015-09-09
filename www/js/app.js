@@ -25,49 +25,51 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
+    .state('settings', {
+      url: '/settings',
+      templateUrl: 'templates/settings.html'
+    })
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/home",
       views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
+        'favorites-tab': {
+          templateUrl: "home.html",
+          controller: 'HomeTabCtrl'
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('tabs.search', {
+      url: '/search',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+        'search-tab': {
+          templateUrl: 'templates/search.html',
         }
       }
     })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+    .state('tabs.facts', {
+      url: "/friends",
+      views: {
+        'friends-tab': {
+          templateUrl: "templates/friends.html"
+        }
       }
-    }
-  });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
-});
+    })
+    .state('tabs.settings', {
+      url: "/settings",
+      views: {
+        'settings-tab': {
+          templateUrl: "templates/settings.html"
+        }
+      }
+    });
+
+
+   $urlRouterProvider.otherwise("/tab/home");
+
+})

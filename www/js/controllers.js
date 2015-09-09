@@ -54,6 +54,13 @@
       ];
     })
     .controller('PlaylistCtrl', function($scope, $stateParams) {
+    })
+    .controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+      $scope.showMenu = function () {
+        $ionicSideMenuDelegate.toggleLeft();
+      };
+    })
+    .controller('HomeTabCtrl', function($scope) {
     });
 
 
