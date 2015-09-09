@@ -48,7 +48,18 @@
         $ionicSideMenuDelegate.toggleLeft();
       };
     })
-    .controller('HomeTabCtrl', function($scope) {
+    .controller('FavTabCtrl', function($scope, $http, $resource) {
+      $scope.title = "Spots";
+
+      function getSpots() {
+        $http
+          .get('http://localhost:8100/api')
+          .then(function(response) {
+            $scope.all = response.data;
+          });
+      }
+
+      getSpots();
     });
 
 

@@ -1,6 +1,11 @@
 <ion-view title="Favorites">
   <ion-content>
-    <h1>List Favorite Spots</h1>
+    <ul>
+      <li ng-repeat="spot in all">
+        {{spot.name}} <br>
+        {{spot.address}}
+      </li?>
+    </ul>
   </ion-content>
 </ion-view>
 
