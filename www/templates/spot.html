@@ -2,9 +2,12 @@
   <ion-content>
     <h1>{{spot[0].name}}</h1>
     <h5>{{spot[0].address}}</h5>
-
-    <div id="map" ng-controller="MapCtrl">
+    <div class="map">
+      <img src="https://maps.googleapis.com/maps/api/staticmap?center={{spot[0].address}}&zoom=16&size=375x375&markers=color:red%7Clabel:x%7C{{spot[0].address}}">
     </div>
+
+    <!-- <div id="map" ng-controller="MapCtrl">
+    </div> -->
   </ion-content>
 </ion-view>
 
