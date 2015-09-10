@@ -53,7 +53,7 @@
     .controller('FavTabCtrl', function($scope, $http) {
       function getSpots() {
         $http
-          .get('http://localhost:8100/api')
+          .get('http://localhost:8100/spots')
           .then(function(response) {
             $scope.all = response.data;
           });
@@ -65,7 +65,7 @@
 
       function getOneSpot() {
         $http
-          .get('http://localhost:8100/api')
+          .get('http://localhost:8100/spots')
           .then(function(response) {
             var id = window.location.href.slice(window.location.href.lastIndexOf('/') +1);
             $scope.spot = response.data.filter(function(spot){
@@ -89,6 +89,9 @@
       }
 
       initMap();
+    })
+    .controller('FriendsCtrl', function() {
+
     });
 
 

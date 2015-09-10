@@ -61,11 +61,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
         }
       }
     })
-    .state('tabs.facts', {
+    .state('tabs.friends', {
       url: "/friends",
       views: {
         'friends-tab': {
-          templateUrl: "templates/friends.html"
+          templateUrl: "templates/friends.html",
+          controller: 'FriendsCtrl'
         }
       }
     })
