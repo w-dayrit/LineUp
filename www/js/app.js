@@ -44,6 +44,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
         }
       }
     })
+    .state('tabs.spot', {
+      url: '/favorites/:_id',
+      views: {
+        'favorites-tab': {
+          templateUrl: 'templates/spot.html',
+          controller: 'SpotCtrl'
+        }
+      }
+    })
     .state('tabs.search', {
       url: '/search',
       views: {

@@ -48,20 +48,31 @@
         $ionicSideMenuDelegate.toggleLeft();
       };
     })
-    .controller('FavTabCtrl', function($scope, $http, $resource) {
+    .controller('FavTabCtrl', function($scope, $http) {
       $scope.title = "Spots";
 
       function getSpots() {
         $http
           .get('http://localhost:8100/api')
           .then(function(response) {
+            console.log(response.data);
             $scope.all = response.data;
           });
       }
 
       getSpots();
 
+      var spot = document.getElementsByClassName('list');
 
+      var test = angular.element(spot);
+
+      test.on('click', function() {
+        console.log('click ' + this);
+      })
+
+    })
+    .controller('SpotCtrl', function($scope, $http) {
+      $scope.title = "Single Spot"
     });
 
 
