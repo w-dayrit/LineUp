@@ -49,30 +49,31 @@
       };
     })
     .controller('FavTabCtrl', function($scope, $http) {
-      $scope.title = "Spots";
-
       function getSpots() {
         $http
           .get('http://localhost:8100/api')
           .then(function(response) {
-            console.log(response.data);
             $scope.all = response.data;
           });
       }
-
       getSpots();
-
-      var spot = document.getElementsByClassName('list');
-
-      var test = angular.element(spot);
-
-      test.on('click', function() {
-        console.log('click ' + this);
-      })
-
     })
     .controller('SpotCtrl', function($scope, $http) {
       $scope.title = "Single Spot"
+
+      function getOneSpot() {
+        $http
+          .get('http://localhost:8100/api')
+          .then(function(response) {
+            var id = window.location.href.slice(window.location.href.lastIndexOf('/') +1);
+            $scope.spot = response.data.filter(function(spot){
+              return spot._id === id
+            });
+          });
+      }
+
+      getOneSpot();
+
     });
 
 
