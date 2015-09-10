@@ -1,5 +1,11 @@
 <ion-view view-title="Friends">
   <ion-content>
-    <h1>Friends</h1>
+    <ul class="list">
+      <li class="item" ng-repeat="friend in all">
+        <h1>{{friend.username}}</h1>
+        <h4>status:</h4>
+        LINED UP: {{friend.wait_time}} min
+      </li>
+    </ul>
   </ion-content>
 </ion-view>

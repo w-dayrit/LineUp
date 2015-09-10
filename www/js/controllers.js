@@ -61,7 +61,7 @@
       getSpots();
     })
     .controller('SpotCtrl', function($scope, $http) {
-      $scope.title = "Single Spot"
+      $scope.title = "Single Spot";
 
       function getOneSpot() {
         $http
@@ -90,7 +90,18 @@
 
       initMap();
     })
-    .controller('FriendsCtrl', function() {
+    .controller('FriendsCtrl', function($scope, $http) {
+      $scope.title = "Friends List";
+
+      function getFriendsList() {
+        $http
+          .get('http://localhost:8100/users')
+          .then(function(response) {
+            $scope.all = response.data;
+          })
+      }
+
+      getFriendsList();
 
     });
 
