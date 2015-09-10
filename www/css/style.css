@@ -9,3 +9,10 @@ a:link {
   height: 375px;
   margin: 0 auto;
 }
+
+#map-canvas {
+  width: 375px;
+  height: 375px;
+  margin: 0 auto;
+  border: 1px solid;
+}

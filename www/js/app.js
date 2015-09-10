@@ -25,11 +25,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-
-    .state('settings', {
-      url: '/settings',
-      templateUrl: 'templates/settings.html'
-    })
     .state('tabs', {
       url: "/tab",
       abstract: true,
@@ -58,6 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
       views: {
         'search-tab': {
           templateUrl: 'templates/search.html',
+          controller: 'SearchCtrl'
         }
       }
     })

@@ -103,6 +103,35 @@
 
       getFriendsList();
 
+    })
+    .controller('SearchCtrl', function($scope) {
+
+      var map;
+
+      function initialize() {
+        var mapOptions = {
+          zoom: 8,
+          center: new google.maps.LatLng(34.0500, -118.2500)
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(34.090645, -118.339114),
+        new google.maps.LatLng(33.991933, -118.148523)
+      );
+
+      var options = {
+        bounds: defaultBounds
+      };
+
+      var input = document.getElementById('pac-input');
+
+      var autocomplete = new google.maps.places.Autocomplete(input, options);
+
     });
 
 
