@@ -42,6 +42,8 @@
           $scope.closeLogin();
         }, 1000);
       };
+
+
     })
     .controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
       $scope.showMenu = function () {
@@ -74,6 +76,19 @@
 
       getOneSpot();
 
+    })
+    .controller('MapCtrl', function() {
+
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 34.0500, lng: -118.2500},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+
+      initMap();
     });
 
 
