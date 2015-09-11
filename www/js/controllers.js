@@ -55,7 +55,14 @@
         $http
           .get('http://localhost:8100/spots')
           .then(function(response) {
+            console.log(response.data);
             $scope.all = response.data;
+
+            var users = response.data.map(function(spot){
+                return spot.users
+              });
+
+            console.log(users);
           });
       }
       getSpots();
@@ -110,14 +117,18 @@
 
       function initialize() {
         var mapOptions = {
-          zoom: 8,
-          center: new google.maps.LatLng(34.0500, -118.2500)
+          zoom: 11,
+          center: new google.maps.LatLng(34.0500, -118.2500),
+          mapTypeControl: false,
+          zoomControl: false,
+          streetViewControl: false
         };
         map = new google.maps.Map(document.getElementById('map-canvas'),
           mapOptions);
       }
 
       google.maps.event.addDomListener(window, 'load', initialize);
+      initialize();
 
       var defaultBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(34.090645, -118.339114),
@@ -129,11 +140,11 @@
       };
 
       var input = document.getElementById('pac-input');
+      // map.controls[google.maps.ControlPosition.TOP_LEFT].PUSH(input);
 
-      var autocomplete = new google.maps.places.Autocomplete(input, options);
+      var autocomplete = new google.maps.places.Autocomplete(input);
 
     });
-
 
 
 
